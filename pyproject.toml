@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cellstate_c2s"
+version = "0.1.0"
+description = "Deviation-from-reference gene ordering for Cell2Sentence cell-state prediction"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+
+authors = [{ name = "impatient_hedgehog", email = "impatienthedgehog@duck.com" }]
+keywords = ["single-cell", "cell2sentence", "llm", "scRNA-seq", "xenium"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = ["numpy", "scipy", "pandas", "anndata"]
+
+[project.optional-dependencies]
+c2s = ["cell2sentence", "datasets"]
+dev = ["pytest", "datasets", "build", "twine"]
+
+
+
+# Homepage = "https://github.com/phdbreath/cellstate_c2s"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
